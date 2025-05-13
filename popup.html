@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini-Bloqueur</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h3>Mini-Bloqueur</h3>
+    
+    <div class="toggle-container">
+      <input type="checkbox" id="blockingToggle" class="toggle-input">
+      <label for="blockingToggle" class="toggle-label">
+        <span class="toggle-button"></span>
+      </label>
+      <span id="toggleStatus">Désactivé</span>
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="newSite" placeholder="Ajouter un site (ex: youtube.com)">
+      <button id="addSite" class="add-button">+</button>
+    </div>
+    
+    <div class="sites-container">
+      <h4>Sites bloqués</h4>
+      <div id="sitesList" class="sites-list"></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
