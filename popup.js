@@ -34,3 +34,55 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+  
+    function removeSite(site) {
+      chrome.storage.local.get('blockedSites', data => {
+        const blockedSites = data.blockedSites || [];
+        const index = blockedSites.indexOf(site);
+        if (index > -1) {
+          blockedSites.splice(index, 1);
+          chrome.storage.local.set({ blockedSites }, loadBlockedSites);
+        }
+      });
+    }
+  
+    function loadBlockedSites() {
+      chrome.storage.local.get('blockedSites', data => {
+        const blockedSites = data.blockedSites || [];
+        sitesListDiv.innerHTML = '';
+        
+        if (blockedSites.length === 0) {
+          const emptyMessage = document.createElement('div');
+          emptyMessage.className = 'empty-message';
+          emptyMessage.textContent = 'Aucun site bloqué';
+          sitesListDiv.appendChild(emptyMessage);
+          return;
+        }
+        
+        blockedSites.forEach(site => {
+          const div = document.createElement('div');
+          div.className = 'site-item';
+          
+          const siteName = document.createElement('span');
+          siteName.className = 'site-name';
+          siteName.textContent = site;
+          
+          const deleteBtn = document.createElement('button');
+          deleteBtn.className = 'delete-btn';
+          deleteBtn.textContent = 'X';
+          deleteBtn.addEventListener('click', () => removeSite(site));
+          
+          div.appendChild(siteName);
+          div.appendChild(deleteBtn);
+          sitesListDiv.appendChild(div);
+        });
+      });
+    }
+  
+    function loadBlockingState() {
+      chrome.storage.local.get('isBlockingEnabled', data => {
+        blockingToggle.checked = data.isBlockingEnabled || false;
+        toggleStatus.textContent = blockingToggle.checked ? 'Activé' : 'Désactivé';
+      });
+    }
+  });
