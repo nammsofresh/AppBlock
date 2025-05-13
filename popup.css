@@ -4,16 +4,29 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fcfcfc;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  body.dark-mode {
+    background-color: #292929;
+    color: #e0e0e0;
   }
   
   .container {
     padding: 12px;
   }
   
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
   h3 {
-    margin-top: 0;
-    color: #333;
-    text-align: center;
+    margin: 0;
+    color: inherit;
   }
   
   h4 {
@@ -21,6 +34,34 @@ body {
     margin-bottom: 8px;
     color: #555;
     font-size: 14px;
+  }
+  
+  body.dark-mode h4 {
+    color: #bbb;
+  }
+  
+  .theme-toggle {
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    transition: background-color 0.2s;
+  }
+  
+  .theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  body.dark-mode .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
   
   .toggle-container {
@@ -68,20 +109,35 @@ body {
     color: #555;
   }
   
+  body.dark-mode #toggleStatus {
+    color: #bbb;
+  }
+  
   .input-group {
     display: flex;
     margin-bottom: 16px;
   }
   
-  input[type="text"] {
+  input[type="text"], 
+  input[type="number"] {
     flex: 1;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px 0 0 4px;
     outline: none;
+    background-color: #fff;
+    color: #333;
   }
   
-  input[type="text"]:focus {
+  body.dark-mode input[type="text"],
+  body.dark-mode input[type="number"] {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    border-color: #555;
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus {
     border-color: #4285f4;
   }
   
@@ -103,6 +159,10 @@ body {
     border-top: 1px solid #eee;
   }
   
+  body.dark-mode .sites-container {
+    border-top-color: #444;
+  }
+  
   .sites-list {
     max-height: 150px;
     overflow-y: auto;
@@ -116,8 +176,12 @@ body {
     border-bottom: 1px solid #f1f1f1;
   }
   
+  body.dark-mode .site-item {
+    border-bottom-color: #3a3a3a;
+  }
+  
   .site-name {
-    color: #333;
+    color: inherit;
     word-break: break-all;
   }
   
@@ -134,5 +198,107 @@ body {
   }
   
   .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  .empty-message {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  body.dark-mode .empty-message {
+    color: #777;
+  }
+  
+  .study-mode {
+    margin-top: 16px;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+  }
+  
+  body.dark-mode .study-mode {
+    border-top-color: #444;
+  }
+  
+  .study-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .time-input {
+    width: 50px;
+    border-radius: 4px;
+    margin-right: 8px;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  .time-label {
+    flex: 1;
+    color: inherit;
+  }
+  
+  .study-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .study-button:hover {
+    background-color: #3d8b40;
+  }
+  
+  .timer-display {
+    margin-top: 10px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .timer-progress {
+    background-color: #e0e0e0;
+    height: 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  
+  body.dark-mode .timer-progress {
+    background-color: #444;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #4CAF50;
+    width: 100%;
+    transition: width 1s linear;
+  }
+  
+  .timer-time {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .cancel-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .cancel-button:hover {
     background-color: #d32f2f;
   }

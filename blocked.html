@@ -14,6 +14,50 @@
     <h1>Site Bloqué</h1>
     <p>Ce site a été bloqué pour vous aider à rester concentré.</p>
     <p>Pour accéder à ce site, désactivez le blocage dans l'extension.</p>
+    
+    <div id="studyModeInfo" class="timer-info" style="display: none;">
+      <p>Mode révision activé</p>
+      <div class="timer-display">
+        <span id="timeRemaining">00:00</span>
+      </div>
+      <p>Le blocage sera automatiquement désactivé lorsque le temps sera écoulé.</p>
+    </div>
   </div>
+
+  <script>
+    // Vérifier si le mode nuit est activé
+    chrome.storage.local.get('isDarkMode', function(data) {
+      if (data.isDarkMode) {
+        document.body.classList.add('dark-mode');
+      }
+    });
+
+    // Vérifier si le mode révision est activé
+    chrome.storage.local.get(['studyModeActive', 'studyModeEndTime'], function(data) {
+      if (data.studyModeActive && data.studyModeEndTime) {
+        document.getElementById('studyModeInfo').style.display = 'block';
+        updateTimer(data.studyModeEndTime);
+      }
+    });
+
+    function updateTimer(endTime) {
+      const now = Date.now();
+      const timeLeft = Math.max(0, endTime - now);
+      
+      if (timeLeft <= 0) {
+        document.getElementById('timeRemaining').textContent = "00:00";
+        return;
+      }
+
+      // Afficher le temps restant
+      const minutesLeft = Math.floor(timeLeft / 60000);
+      const secondsLeft = Math.floor((timeLeft % 60000) / 1000);
+      document.getElementById('timeRemaining').textContent = 
+        `${String(minutesLeft).padStart(2, '0')}:${String(secondsLeft).padStart(2, '0')}`;
+      
+      // Mettre à jour toutes les secondes
+      setTimeout(() => updateTimer(endTime), 1000);
+    }
+  </script>
 </body>
 </html>

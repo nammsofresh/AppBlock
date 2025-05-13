@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Mini-Bloqueur",
-    "version": "1.0",
-    "description": "Bloque les sites distractifs",
+    "version": "1.1",
+    "description": "Bloque les sites distractifs avec mode révision et mode nuit",
     "action": {
       "default_popup": "popup.html",
       "default_icon": "icon.png"
@@ -10,5 +10,11 @@
     "background": {
       "service_worker": "background.js"
     },
-    "permissions": ["storage", "webNavigation", "tabs"]
+    "permissions": ["storage", "webNavigation", "tabs"],
+    "web_accessible_resources": [
+      {
+        "resources": ["blocked.html", "blocked.css"],
+        "matches": ["<all_urls>"]
+      }
+    ]
   }

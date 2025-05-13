@@ -7,7 +7,12 @@
 </head>
 <body>
   <div class="container">
-    <h3>Mini-Bloqueur</h3>
+    <div class="header">
+      <h3>Mini-Bloqueur</h3>
+      <button id="themeToggle" class="theme-toggle" title="Changer de thème">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
     
     <div class="toggle-container">
       <input type="checkbox" id="blockingToggle" class="toggle-input">
@@ -25,6 +30,22 @@
     <div class="sites-container">
       <h4>Sites bloqués</h4>
       <div id="sitesList" class="sites-list"></div>
+    </div>
+
+    <div class="study-mode">
+      <h4>Mode révision</h4>
+      <div class="study-controls">
+        <input type="number" id="studyDuration" min="1" max="180" value="30" class="time-input">
+        <span class="time-label">minutes</span>
+        <button id="startStudyMode" class="study-button">Démarrer</button>
+      </div>
+      <div id="timerDisplay" class="timer-display hidden">
+        <div class="timer-progress">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <div class="timer-time">Temps restant: <span id="timeRemaining">00:00</span></div>
+        <button id="cancelStudyMode" class="cancel-button">Annuler</button>
+      </div>
     </div>
   </div>
 
