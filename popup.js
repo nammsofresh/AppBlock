@@ -18,3 +18,19 @@ document.addEventListener('DOMContentLoaded', function() {
       chrome.storage.local.set({ isBlockingEnabled: blockingToggle.checked });
       toggleStatus.textContent = blockingToggle.checked ? 'Activé' : 'Désactivé';
     }
+  
+    function addSite() {
+      const site = newSiteInput.value.trim().replace(/^(https?:\/\/)?(www\.)?/i, '').split('/')[0];
+      if (!site) return;
+  
+      chrome.storage.local.get('blockedSites', data => {
+        const blockedSites = data.blockedSites || [];
+        if (!blockedSites.includes(site)) {
+          blockedSites.push(site);
+          chrome.storage.local.set({ blockedSites }, () => {
+            newSiteInput.value = '';
+            loadBlockedSites();
+          });
+        }
+      });
+    }
