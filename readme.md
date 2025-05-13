@@ -1,6 +1,6 @@
 # AppBlock
 
-Mini-Bloqueur est une extension Chrome qui aide à gérer votre productivité en bloquant les sites web distrayants. L'extension propose également un mode révision et un mode nuit pour une meilleure expérience utilisateur.
+AppBlock-Mini-Bloqueur est une extension Chrome qui aide à gérer votre productivité en bloquant les sites web distrayants. L'extension propose également un mode révision et un mode nuit pour une meilleure expérience utilisateur.
 Fonctionnalités
 
 Blocage de sites web : Bloquez les sites distrayants pour rester concentré
@@ -53,12 +53,12 @@ Si le mode révision est activé, la page de blocage affiche également le temps
 # Désinstallation
 
 Ouvrez Chrome et accédez à chrome://extensions/
-Trouvez Mini-Bloqueur dans la liste des extensions
+Trouvez AppBlock dans la liste des extensions
 Cliquez sur "Supprimer" pour désinstaller l'extension
 
 # Confidentialité
 
-Mini-Bloqueur fonctionne entièrement en local :
+AppBlock fonctionne entièrement en local :
 
 Aucune donnée n'est envoyée à des serveurs externes
 Vos sites bloqués sont stockés uniquement sur votre appareil
