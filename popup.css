@@ -1,304 +1,370 @@
 body {
-    width: 280px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fcfcfc;
-    color: #333;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  body.dark-mode {
-    background-color: #292929;
-    color: #e0e0e0;
-  }
-  
-  .container {
-    padding: 12px;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-  
-  h3 {
-    margin: 0;
-    color: inherit;
-  }
-  
-  h4 {
-    margin-top: 16px;
-    margin-bottom: 8px;
-    color: #555;
-    font-size: 14px;
-  }
-  
-  body.dark-mode h4 {
-    color: #bbb;
-  }
-  
-  .theme-toggle {
-    background: transparent;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 4px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    transition: background-color 0.2s;
-  }
-  
-  .theme-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-  
-  body.dark-mode .theme-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .toggle-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-  
-  .toggle-input {
-    display: none;
-  }
-  
-  .toggle-label {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 20px;
-    background-color: #ccc;
-    border-radius: 20px;
-    margin-right: 8px;
-    cursor: pointer;
-  }
-  
-  .toggle-button {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: white;
-    transition: transform 0.2s;
-  }
-  
-  .toggle-input:checked + .toggle-label {
-    background-color: #4285f4;
-  }
-  
-  .toggle-input:checked + .toggle-label .toggle-button {
-    transform: translateX(20px);
-  }
-  
-  #toggleStatus {
-    font-size: 14px;
-    color: #555;
-  }
-  
-  body.dark-mode #toggleStatus {
-    color: #bbb;
-  }
-  
-  .input-group {
-    display: flex;
-    margin-bottom: 16px;
-  }
-  
-  input[type="text"], 
-  input[type="number"] {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
-    outline: none;
-    background-color: #fff;
-    color: #333;
-  }
-  
-  body.dark-mode input[type="text"],
-  body.dark-mode input[type="number"] {
-    background-color: #3a3a3a;
-    color: #e0e0e0;
-    border-color: #555;
-  }
-  
-  input[type="text"]:focus,
-  input[type="number"]:focus {
-    border-color: #4285f4;
-  }
-  
-  .add-button {
-    background: #4285f4;
-    color: white;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    padding: 0 12px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .add-button:hover {
-    background: #3367d6;
-  }
-  
-  .sites-container {
-    border-top: 1px solid #eee;
-  }
-  
-  body.dark-mode .sites-container {
-    border-top-color: #444;
-  }
-  
-  .sites-list {
-    max-height: 150px;
-    overflow-y: auto;
-  }
-  
-  .site-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #f1f1f1;
-  }
-  
-  body.dark-mode .site-item {
-    border-bottom-color: #3a3a3a;
-  }
-  
-  .site-name {
-    color: inherit;
-    word-break: break-all;
-  }
-  
-  .delete-btn {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    width: 24px;
-    height: 24px;
-    font-size: 12px;
-    cursor: pointer;
-    margin-left: 8px;
-  }
-  
-  .delete-btn:hover {
-    background-color: #d32f2f;
-  }
-  
-  .empty-message {
-    color: #888;
-    font-style: italic;
-    text-align: center;
-    padding: 10px 0;
-  }
-  
-  body.dark-mode .empty-message {
-    color: #777;
-  }
-  
-  .study-mode {
-    margin-top: 16px;
-    border-top: 1px solid #eee;
-    padding-top: 8px;
-  }
-  
-  body.dark-mode .study-mode {
-    border-top-color: #444;
-  }
-  
-  .study-controls {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .time-input {
-    width: 50px;
-    border-radius: 4px;
-    margin-right: 8px;
-    padding: 5px;
-    text-align: center;
-  }
-  
-  .time-label {
-    flex: 1;
-    color: inherit;
-  }
-  
-  .study-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 6px 12px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .study-button:hover {
-    background-color: #3d8b40;
-  }
-  
-  .timer-display {
-    margin-top: 10px;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  .timer-progress {
-    background-color: #e0e0e0;
-    height: 8px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    overflow: hidden;
-  }
-  
-  body.dark-mode .timer-progress {
-    background-color: #444;
-  }
-  
-  .progress-bar {
-    height: 100%;
-    background-color: #4CAF50;
-    width: 100%;
-    transition: width 1s linear;
-  }
-  
-  .timer-time {
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 8px;
-  }
-  
-  .cancel-button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 6px 12px;
-    cursor: pointer;
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  .cancel-button:hover {
-    background-color: #d32f2f;
-  }
+  width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #1d1d1f;
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.4;
+}
+
+body.dark-mode {
+  background-color: #1d1d1f;
+  color: #f5f5f7;
+}
+
+.container {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.022em;
+}
+
+h4 {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  color: #6e6e73;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.016em;
+}
+
+body.dark-mode h4 {
+  color: #a1a1a6;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  transition: background-color 0.2s;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  background-color: #e8e8ed;
+  border-radius: 34px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+body.dark-mode .toggle-label {
+  background-color: #38383a;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+body.dark-mode .toggle-button {
+  background-color: #f5f5f7;
+}
+
+.toggle-input:checked + .toggle-label {
+  background-color: #06c;
+}
+
+.toggle-input:checked + .toggle-label .toggle-button {
+  transform: translateX(22px);
+}
+
+#toggleStatus {
+  font-size: 14px;
+  color: #86868b;
+  font-weight: 500;
+}
+
+body.dark-mode #toggleStatus {
+  color: #a1a1a6;
+}
+
+.input-group {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+input[type="text"], 
+input[type="number"] {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d2d2d7;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+  background-color: #fff;
+  color: #1d1d1f;
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="number"] {
+  background-color: #1d1d1f;
+  color: #f5f5f7;
+  border-color: #424245;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #06c;
+}
+
+.add-button {
+  background: #06c;
+  color: white;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  padding: 0 14px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background: #0453a3;
+}
+
+.sites-container {
+  border-top: 1px solid #d2d2d7;
+  padding-top: 6px;
+}
+
+body.dark-mode .sites-container {
+  border-top-color: #424245;
+}
+
+.sites-list {
+  max-height: 160px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.sites-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sites-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sites-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+body.dark-mode .sites-list::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.site-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f5f5f7;
+}
+
+body.dark-mode .site-item {
+  border-bottom-color: #2d2d2f;
+}
+
+.site-name {
+  color: inherit;
+  word-break: break-all;
+  font-size: 14px;
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: #86868b;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  margin-left: 8px;
+}
+
+.delete-btn:hover {
+  background-color: #fb5757;
+  color: white;
+}
+
+.empty-message {
+  color: #86868b;
+  font-style: italic;
+  text-align: center;
+  padding: 16px 0;
+  font-size: 14px;
+}
+
+body.dark-mode .empty-message {
+  color: #a1a1a6;
+}
+
+.study-mode {
+  margin-top: 24px;
+  border-top: 1px solid #d2d2d7;
+  padding-top: 16px;
+}
+
+body.dark-mode .study-mode {
+  border-top-color: #424245;
+}
+
+.study-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.time-input {
+  width: 60px;
+  border-radius: 8px;
+  margin-right: 12px;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #d2d2d7;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+body.dark-mode .time-input {
+  background-color: #1d1d1f;
+  color: #f5f5f7;
+  border-color: #424245;
+}
+
+.time-label {
+  flex: 1;
+  color: inherit;
+  font-size: 14px;
+}
+
+.study-button {
+  background-color: #06c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.study-button:hover {
+  background-color: #0453a3;
+}
+
+.study-button:disabled {
+  background-color: #86868b;
+  cursor: not-allowed;
+}
+
+.timer-display {
+  margin-top: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+.timer-progress {
+  background-color: #f5f5f7;
+  height: 6px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+body.dark-mode .timer-progress {
+  background-color: #3a3a3c;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #06c;
+  width: 100%;
+  transition: width 1s linear;
+}
+
+.timer-time {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.cancel-button {
+  background-color: #fb5757;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+  background-color: #e04343;
+}

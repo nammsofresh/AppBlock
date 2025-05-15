@@ -1,89 +1,99 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #333;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  body.dark-mode {
-    background-color: #292929;
-    color: #e0e0e0;
-  }
-  
-  .container {
-    text-align: center;
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    transition: background-color 0.3s;
-  }
-  
-  body.dark-mode .container {
-    background-color: #333;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .block-icon {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
-  }
-  
-  .circle {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: #f44336;
-    opacity: 0.2;
-  }
-  
-  .slash {
-    position: absolute;
-    width: 4px;
-    height: 80px;
-    background-color: #f44336;
-    top: 0;
-    left: 38px;
-    transform: rotate(45deg);
-  }
-  
-  h1 {
-    color: #f44336;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    margin: 10px 0;
-    line-height: 1.5;
-  }
-  
-  .timer-info {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid #eaeaea;
-  }
-  
-  body.dark-mode .timer-info {
-    border-top-color: #444;
-  }
-  
-  .timer-display {
-    font-size: 22px;
-    font-weight: bold;
-    margin: 10px 0;
-    color: #4CAF50;
-  }
-  
-  body.dark-mode .timer-display {
-    color: #6dbd70;
-  }
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #1d1d1f;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #1d1d1f;
+  color: #f5f5f7;
+}
+
+.container {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 36px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .container {
+  background-color: #2d2d2f;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.block-icon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+}
+
+.circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #fb5757;
+  opacity: 0.2;
+}
+
+.slash {
+  position: absolute;
+  width: 4px;
+  height: 80px;
+  background-color: #fb5757;
+  top: 0;
+  left: 38px;
+  transform: rotate(45deg);
+}
+
+h1 {
+  color: #fb5757;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.022em;
+}
+
+p {
+  margin: 14px 0;
+  line-height: 1.5;
+  font-size: 15px;
+  color: #6e6e73;
+}
+
+body.dark-mode p {
+  color: #a1a1a6;
+}
+
+.timer-info {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #f5f5f7;
+}
+
+body.dark-mode .timer-info {
+  border-top-color: #424245;
+}
+
+.timer-display {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 16px 0;
+  color: #06c;
+  letter-spacing: -0.022em;
+}
+
+body.dark-mode .timer-display {
+  color: #2997ff;
+}
